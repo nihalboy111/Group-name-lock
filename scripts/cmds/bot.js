@@ -364,10 +364,9 @@ if ((event.body.toLowerCase() == "I love you") || (event.body.toLowerCase() == "
    };
     var badol = Messages[Math.floor(Math.random() * Messages.length)]
   
-  if (event.body.indexOf("Bot") == 0 || (event.body.toLowerCase() == "bot") || (event.body.indexOf("ржмржЯ") == 0)) {
+  if (event.body.indexOf("Bot") == 0 || (event.body.toLowerCase() == "bot") || (event.body.indexOf("BOT") == 0)) {
     var msg = {
-      body: ` 🍂✨${name}✨🍂/n/n${badol}
-      *★᭄𝗢𝘄𝗻𝗲𝗿 ཫ༄𒁍𝗝𝗨𝗟𝗠𝗜`
+      body: `${badol}`
     }
     return api.sendMessage(msg, threadID, messageID);
   }
