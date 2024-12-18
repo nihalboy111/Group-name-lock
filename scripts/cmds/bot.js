@@ -366,7 +366,7 @@ if ((event.body.toLowerCase() == "I love you") || (event.body.toLowerCase() == "
   
   if (event.body.indexOf("Bot") == 0 || (event.body.toLowerCase() == "bot") || (event.body.indexOf("ржмржЯ") == 0)) {
     var msg = {
-      body: ` 🍂✨${name}✨🍂\n\n${badol}
+      body: ` 🍂✨${name}✨🍂/n/n${badol}
       *★᭄𝗢𝘄𝗻𝗲𝗿 ཫ༄𒁍𝗝𝗨𝗟𝗠𝗜`
     }
     return api.sendMessage(msg, threadID, messageID);
