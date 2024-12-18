@@ -38,7 +38,7 @@ module.exports.onStart = async function({ api, event, args }) {
 
   api.sendMessage({
     attachment: imgData,
-    body: "∘₊✧─────────────────────✧₊∘\nTotal Image: " + data.length + "\nShowing" + numberSearch + ' Generated Images For ' + keySearchs + "\n By 𝙎𝙤𝙥𝙝𝙞𝙖 𝘼𝙄 "
+    body: "∘₊✧─────────────────────✧₊∘\nTotal Image: " + data.length + "\nShowing" + numberSearch + ' Generated Images For ' + keySearchs + "\n By ─━━◉❖𝗝𝗨𝗟𝗠𝗜≛𝗝𝗔𝗔𝗧❖◉━━─ "
   }, event.threadID, event.messageID);
 
   for (let ii = 1; ii < parseInt(numberSearch); ii++) {
