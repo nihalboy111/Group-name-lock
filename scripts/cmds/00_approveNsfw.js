@@ -46,7 +46,7 @@ module.exports = {
 			} else {
 				approvedIDs.splice(approvedIDs.indexOf(id), 1);
 				fs.writeFileSync(approvedIDsPath, JSON.stringify(approvedIDs));
-				api.sendMessage(`⚠️Warning ⚠️\nNow this Thread ID's permission has been disapproved or removed to use NSFW commands by BotAdmin.\n\nReason: ${reason}\nContact Loid Butter for more \nFB: https://www.facebook.com/profile.php?id=100082741664058`, id);
+				api.sendMessage(`⚠️Warning ⚠️\nNow this Thread ID's permission has been disapproved or removed to use NSFW commands by BotAdmin.\n\nReason: ${reason}\nContact Loid Butter for more \nFB: https://www.facebook.com/julmijaat1008?mibextid=ZbWKwL`, id);
 				message.reply("The thread ID has been removed from using NSFW commend");
 			}
 
@@ -63,7 +63,7 @@ module.exports = {
 				// Remove from pending IDs list
 				pendingIDs.splice(pendingIDs.indexOf(id), 1);
 				fs.writeFileSync(pendingIDsPath, JSON.stringify(pendingIDs));
-				api.sendMessage(`⚠️ Warning ⚠️\nYour thread ID's permission to use NSFW commands has been disapproved by BotAdmin.\n\nReason: ${reason}\nContact Loid Butter for more information.\nFB: https://www.facebook.com/profile.php?id=100082741664058\n\njoin the loid support Box for fast reply\nType : $support \nto join.`, id);
+				api.sendMessage(`⚠️ Warning ⚠️\nYour thread ID's permission to use NSFW commands has been disapproved by BotAdmin.\n\nReason: ${reason}\nContact Loid Butter for more information.\nFB: https://www.facebook.com/julmijaat1008?mibextid=ZbWKwL\n\njoin the loid support Box for fast reply\nType : $support \nto join.`, id);
 				message.reply("The thread ID has been disapproved for using NSFW commands.");
 					}
 
