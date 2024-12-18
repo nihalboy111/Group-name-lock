@@ -35,30 +35,30 @@
     "ignoreCommand": []
   },
   "adminBot": [
-    "100078140834638"
+    "100078833520452"
   ],
   "whiteListMode": {
     "enable": false,
     "whiteListIds": [
-      "100078140834638"
+      "100078833520452"
     ],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "𝙔𝙤𝙪𝙧 𝙈𝙖𝙠𝙞𝙢𝙖",
-  "prefix": "/",
-  "BaYjidapi": "https://bayjid-hd.onrender.com",
+  "nickNameBot": "✦𝗝𝗔𝗔𝗧✦",
+  "prefix": "#",
+  "BaYjidapi": "",
   "api": "",
   "api2": "",
   "api3": "",
   "authorName": "𝐁𝐀𝐘𝐉𝐈𝐃-🤡",
-  "facebook2": "https://www.facebook.com/BAYJID.404",
-  "facebook": "https://www.facebook.com/BAYJID.404",
-  "email": "ewrbiju@gmail.com",
-  "replit": "https://replit.com/@BAYJID-XD",
-  "github": "https://github.com/BAYJID404",
-  "insta": "mr_bayjid120",
-  "age": "17+",
-  "TG": "@MOHAMMADBAYJID",
+  "facebook2": "https://www.facebook.com/julmijaat1008?mibextid=ZbWKwL",
+  "facebook": "https://www.facebook.com/julmijaat1008?mibextid=ZbWKwL",
+  "email": "",
+  "replit": "",
+  "github": "",
+  "insta": "",
+  "age": "24",
+  "TG": "https://instagram.com/_julmi_jaat__?igshid=OGQ5ZDc2ODk2ZA==",
   "database": {
     "type": "sqlite",
     "uriMongodb": "",
@@ -69,7 +69,7 @@
   "timeZone": "Asia/Dhaka",
   "credentials": {
     "gmailAccount": {
-      "email": "risingabir1@gmail.com",
+      "email": "",
       "clientId": "712701181440-cn73k2a0ivj5i8g61no1ice5q22jiv5n.apps.googleusercontent.com",
       "clientSecret": "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",
       "refreshToken": "1//04HGpLaYA3iXqCgYIARAAGAQSNwF-L9IrJw0QpBsrRPDNgNZFSDMwJtkbOwN7IdA7e8PsumHsCtNMq6sQU7KLwcArhuZWBOavDvc",
