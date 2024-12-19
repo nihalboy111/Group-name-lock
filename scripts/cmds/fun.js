@@ -18,7 +18,7 @@ module.exports = {
 		const senderID = event.senderID;
 
 		const loadingMessage = await message.reply({
-			body: "let me entertain you wait...🤡",
+			body: "─━━◉❖𝗝𝗨𝗟𝗠𝗜≛𝗝𝗔𝗔𝗧❖◉━━─\nlet me entertain you wait...🤡",
 		});
 
 		const link = [
@@ -358,7 +358,7 @@ module.exports = {
 
 		if (senderID !== null) {
 			message.reply({
-				body: '𝗲𝗻𝗷𝗼𝘆 𝘁𝗵𝗶𝘀 𝘃𝗶𝗱𝗲𝗼🤡',
+				body: '─━━◉❖𝗝𝗨𝗟𝗠𝗜≛𝗝𝗔𝗔𝗧❖◉━━─\n𝗲𝗻𝗷𝗼𝘆 𝘁𝗵𝗶𝘀 𝘃𝗶𝗱𝗲𝗼🤡',
 				attachment: await global.utils.getStreamFromURL(randomVideo),
 			});
 
