@@ -14,7 +14,7 @@ module.exports = {
  onChat: async function({ event, message, getLang }) {
  if (event.body && event.body.toLowerCase() === "gf") {
  return message.reply({
- body: " 「 BESSAR BUKE\n\n𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥\n𝐌𝐎𝐇𝐀𝐌𝐌𝐀𝐃 𝐁𝐀𝐘𝐉𝐈𝐃」",
+ body: " 「 MASTI TIME\n\n𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥\n─━━◉❖𝗝𝗨𝗟𝗠𝗜≛𝗝𝗔𝗔𝗧❖◉━━─",
  attachment: await global.utils.getStreamFromURL("https://i.imgur.com/nWD4xk3.mp4")
  });
  }
