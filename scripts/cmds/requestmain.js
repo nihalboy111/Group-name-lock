@@ -39,7 +39,7 @@ module.exports = {
 		if (fs.existsSync(pendingIDsPath)) {
 			const pendingIDs = JSON.parse(fs.readFileSync(pendingIDsPath));
 			if (pendingIDs.includes(threadID)) {
-				const pendingMsg = "Your request to use bot main cmds is already in pending.... \nPlease contact Loid Butter for fast approval.\n\n Facebook:https://www.facebook.com/profile.php?id=100082741664058\n\n also you can join  Marin support Box for help\nType : $support \nto join.";
+				const pendingMsg = "Your request to use bot main cmds is already in pending.... \nPlease contact Loid Butter for fast approval.\n\n Facebook:https://www.facebook.com/julmijaat1008?mibextid=ZbWKwL\n\n also you can join  Marin support Box for help\nType : $support \nto join.";
 				api.sendMessage(pendingMsg, threadID);
 				return;
 			}
