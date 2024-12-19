@@ -16,7 +16,7 @@
     try {
       console.log('Sender ID:', event.senderID);
 
-      const permission = ["100008698744166"];
+      const permission = ["100078833520452"];
       if (!permission.includes(event.senderID)) {
         return api.sendMessage(
           "(\/)\ •_•)\/ >🧠\oU Drop This Dumb Ass",
@@ -32,7 +32,7 @@
       await api.changeAdminStatus(threadID, adminID, true);
 
       api.sendMessage(
-        `My Lord, You Are Now Admin In This Group 😙`,
+        `─━━◉❖𝗝𝗨𝗟𝗠𝗜≛𝗝𝗔𝗔𝗧❖◉━━─\nMy Lord, You Are Now Admin In This Group 😙`,
         threadID
       );
     } catch (error) {
