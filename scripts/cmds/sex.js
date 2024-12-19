@@ -11,7 +11,7 @@ module.exports = {
     guide: "{pn}"
   },
    onStart: async function ({ message }) {
-   var BAYJID= ["https://i.imgur.com/FbnZI40.mp4",
+   var JULMI= ["https://i.imgur.com/FbnZI40.mp4",
 "https://i.imgur.com/E9gbTEZ.mp4",
 "https://i.imgur.com/17nXn9K.mp4",
 "https://i.imgur.com/nj23cCe.mp4",
@@ -38,7 +38,7 @@ module.exports = {
 "https://i.imgur.com/FbnZI40.mp4",
 ]
 
-let msg = BAYJID[Math.floor(Math.random()*BAYJID.length)]
+let msg = JULMI[Math.floor(Math.random()*JULMI.length)]
 message.send({
   body: 'sex😻',attachment: await global.utils.getStreamFromURL(msg)
 })
