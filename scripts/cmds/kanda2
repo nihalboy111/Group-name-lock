@@ -18,7 +18,7 @@ module.exports = {
     const senderID = event.senderID;
 
     const loadingMessage = await message.reply({
-      body: "kanda aaudaixa... ekxin parkhi muji! 🤡",
+      body: "SUDHE SARIF BALAK DUR RHE VIDEO SE🤡",
     });
 
     const link = [
@@ -152,7 +152,7 @@ module.exports = {
 
     if (senderID !== null) {
       message.reply({
-        body: 'xolera bas aba 🤡',
+        body: 'VIDEO DEKH KAR HILANA MAT🤡',
         attachment: await global.utils.getStreamFromURL(randomVideo),
       });
 
