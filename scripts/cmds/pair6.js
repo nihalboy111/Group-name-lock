@@ -1,15 +1,15 @@
 module.exports.config = {
-	name: "pair4",
+	name: "pair6",
 	version: "1.0.1",
 	hasPermssion: 0,
 	credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-	description: "Pair with people in the group",
-	commandCategory: "For users",
+	description: "",
+	commandCategory: "Picture",
 	cooldowns: 5,
 	dependencies: {
         "axios": "",
         "fs-extra": ""
-  }
+    }
 }
 module.exports.onLoad = async() => {
     const { resolve } = global.nodemodule["path"];
@@ -57,11 +57,11 @@ async function circle(image) {
     image.circle();
     return await image.getBufferAsync("image/png");
 }
-module.exports.run = async function({ api, event, args, models, Users, Threads, Currencies, permssion }) {
-  const { threadID, messageID, senderID } = event;
-    const { readFileSync, writeFileSync } = require("fs-extra")
+module.exports. run = async function({ api, event, args, Users, Threads, Currencies }) {
+  const axios = require("axios");
     const fs = require("fs-extra");
-    var tl = ['21%','11%','55%','89%','22%','45%','1%','4%','78%','15%','91%','77%','41%','32%', '67%', '19%', '37%', '17%', '96%', '52%', '62%', '76%', '83%', '100%', '99%', "0%", "48%"];
+    const { threadID, messageID, senderID } = event;
+    var tl = ['21%', '67%', '19%', '37%', '17%', '96%', '52%', '62%', '76%', '83%', '100%', '99%', "0%", "48%"];
         var tle = tl[Math.floor(Math.random() * tl.length)];
         let dataa = await api.getUserInfo(event.senderID);
         let namee = await dataa[event.senderID].name
@@ -75,7 +75,7 @@ module.exports.run = async function({ api, event, args, models, Users, Threads, 
                 arraytag.push({id: id, tag: name});
         
         var sex = await data[id].gender;
-        var gender = sex == 2 ? "Male🧑" : sex == 1 ? "Female👩‍🦰" : "Trần Đức Bo";
+        var gender = sex == 2 ? "Male🧑" : sex == 1 ? "Female👩‍  " : "Tran Duc Bo";
 var one = senderID, two = id;
-    return makeImage({ one, two }).then(path => api.sendMessage({ body: `🍓 Congratulations ${namee} was paired with ${name}\n🍓 The Double Odds are: ${tle}`, mentions: arraytag, attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
-  }
+    return makeImage({ one, two }).then(path => api.sendMessage({ body: `Congratulations ${namee} is paired with ${name} \n ️The odds are: 〘${tle}〙`, mentions: arraytag, attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
+}
