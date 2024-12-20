@@ -1,68 +1,80 @@
-const axios = require('axios');
-
-module.exports = {
-	config: {
-		name: "love",
-		version: "1.0",
-		author: "RUBISH",
-		countDown: 5,
-		role: 0,
-		shortDescription: {
-			vi: "Tính chỉ số tình cảm",
-			en: "Calculate love compatibility"
-		},
-		longDescription: {
-			vi: "Sử dụng lệnh này để tính chỉ số tình cảm giữa hai người.",
-			en: "Use this command to calculate love compatibility between two people."
-		},
-		category: "fun",
-		guide: {
-			vi: "Cú pháp: love [tên người thứ nhất] - [tên người thứ hai]",
-			en: "Syntax: love [first person's name] - [second person's name]"
-		}
-	},
-
-onStart: async function ({ api, args, message, event }) {
-		try {
-			const text = args.join(" ");
-			const [fname, sname] = text.split('-').map(name => name.trim());
-
-			if (!fname || !sname) {
-				return message.reply("❌ Please provide the names of both individuals.");
-			}
-
-			const response = await axios.get('https://love-calculator.api-host.repl.co/love-calculator', {
-				params: { fname, sname }
-			});
-
-			const result = response.data;
-
-			let loveMessage = `💖 Love Compatibility 💖\n\n${fname} ❤️ ${sname}\n\nPercentage: ${result.percentage}%\n\n● ${result.result}\n`;
-
-			const intervalMessages = {
-				10: "Just the beginning! Keep exploring your feelings.",
-				20: "There's potential here. Keep nurturing your connection.",
-				30: "A solid foundation! Your love is growing.",
-				40: "Halfway there! Your relationship is blossoming.",
-				50: "A balanced and promising connection! Cherish your love.",
-				60: "Growing stronger! Your bond is becoming more profound.",
-				70: "On the right track to a lasting love! Keep building.",
-				80: "Wow! You're a perfect match! Your love is extraordinary.",
-				90: "Almost there! Your flame is burning brightly.",
-				100: "Congratulations on a perfect connection! You two are meant to be!"
-			};
-
-			const interval = Math.floor(result.percentage / 10) * 10;
-			const intervalMessage = intervalMessages[interval];
-
-			if (intervalMessage) {
-				loveMessage += `\n● ${intervalMessage} `;
-			}
-
-			message.reply(loveMessage);
-		} catch (error) {
-			console.error(error);
-			message.reply("❌ An error occurred while calculating love compatibility. Please try again later.");
-		}
-	}
+module.exports.config = {
+    name: "love",
+    version: "2.6.0",
+    hasPermssion: 0,
+    credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
+    description: "",
+    commandCategory: "Love",
+    usages: "[tag]",
+    cooldowns: 5,
+    dependencies: {
+        "axios": "",
+        "fs-extra": "",
+        "path": "",
+        "jimp": ""
+    }
 };
+
+module.exports.onLoad = async() => {
+    const { resolve } = global.nodemodule["path"];
+    const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
+    const { downloadFile } = global.utils;
+    const dirMaterial = __dirname + `/cache/canvas/`;
+    const path = resolve(__dirname, 'cache/canvas', 'love2.jpg');
+    if (!existsSync(dirMaterial + "canvas")) mkdirSync(dirMaterial, { recursive: true });
+    if (!existsSync(path)) await downloadFile("https://i.imgur.com/JTvb5yc.png", path);
+}
+
+async function makeImage({ one, two }) {
+    const fs = global.nodemodule["fs-extra"];
+    const path = global.nodemodule["path"];
+    const axios = global.nodemodule["axios"]; 
+    const jimp = global.nodemodule["jimp"];
+    const __root = path.resolve(__dirname, "cache", "canvas");
+
+    let tromcho_img = await jimp.read(__root + "/love2.jpg");
+    let pathImg = __root + `/love2_${one}_${two}.png`;
+    let avatarOne = __root + `/avt_${one}.png`;
+    let avatarTwo = __root + `/avt_${two}.png`;
+    
+    let getAvatarOne = (await axios.get(`https://graph.facebook.com/${one}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
+    fs.writeFileSync(avatarOne, Buffer.from(getAvatarOne, 'utf-8'));
+    
+    let getAvatarTwo = (await axios.get(`https://graph.facebook.com/${two}/picture?width=512&height=512&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: 'arraybuffer' })).data;
+    fs.writeFileSync(avatarTwo, Buffer.from(getAvatarTwo, 'utf-8'));
+    
+    let circleOne = await jimp.read(await circle(avatarOne));
+    let circleTwo = await jimp.read(await circle(avatarTwo));
+    tromcho_img.composite(circleOne.resize(270, 270), 800, 100).composite(circleTwo.resize(300, 300), 205, 300);
+    
+    let raw = await tromcho_img.getBufferAsync("image/png");
+    
+    fs.writeFileSync(pathImg, raw);
+    fs.unlinkSync(avatarOne);
+    fs.unlinkSync(avatarTwo);
+    
+    return pathImg;
+}
+async function circle(image) {
+    const jimp = require("jimp");
+    image = await jimp.read(image);
+    image.circle();
+    return await image.getBufferAsync("image/png");
+}
+
+module.exports.run = async function ({ event, api, args }) {
+    const fs = global.nodemodule["fs-extra"];
+    const { threadID, messageID, senderID } = event;
+    var mention = Object.keys(event.mentions)[0]
+    let tag = event.mentions[mention].replace("@", "");
+    if (!mention) return api.sendMessage("Please tag 1 person", threadID, messageID);
+    else {
+        var one = senderID, two = mention;
+        return makeImage({ one, two }).then(path => api.sendMessage({ body: "This "  +  tag + ' love you so much💔',
+            mentions: [{
+          tag: tag,
+          id: mention
+        }],
+     attachment: fs.createReadStream(path) }, threadID, () => fs.unlinkSync(path), messageID));
+    }
+}
