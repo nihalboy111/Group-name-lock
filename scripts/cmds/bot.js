@@ -366,10 +366,7 @@ if ((event.body.toLowerCase() == "I love you") || (event.body.toLowerCase() == "
   
   if (event.body.indexOf("Bot") == 0 || (event.body.toLowerCase() == "bot") || (event.body.indexOf("BOT") == 0)) {
     var msg = {
-	    mess = "{name}"
-      body: `🔮${name}🔮\n\n𝗠𝗮𝘀𝘀𝗮𝗴𝗲💌 :- ${rand} \n\n                      ╔════•| ✿ |•════╗
-                      🌹 *★᭄𝗢𝘄𝗻𝗲𝗿 ཫ༄𒁍𝗝𝗨𝗟𝗠𝗜✦🌹
-                      ╚════•| ✿ |•════╝`
+	   body: `${badol}`
     }
     return api.sendMessage(msg, threadID, messageID);
   }
