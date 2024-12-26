@@ -366,7 +366,7 @@ if ((event.body.toLowerCase() == "I love you") || (event.body.toLowerCase() == "
   
   if (event.body.indexOf("Bot") == 0 || (event.body.toLowerCase() == "bot") || (event.body.indexOf("BOT") == 0)) {
     var msg = {
-	   body: `${badol}`
+	   
     }
     return api.sendMessage(msg, threadID, messageID);
   }
